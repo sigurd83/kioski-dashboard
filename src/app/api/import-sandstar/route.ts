@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   const sheet = workbook.Sheets[workbook.SheetNames[0]];
 
   // Sandstar has 2 metadata rows before the actual header (row 3 = header)
-  const raw = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet, {
+  const raw = XLSX.utils.sheet_to_json<unknown[]>(sheet, {
     header: 1,
     defval: null,
   }) as unknown[][];

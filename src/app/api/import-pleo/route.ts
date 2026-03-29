@@ -121,7 +121,7 @@ export async function POST(req: NextRequest) {
   const workbook = XLSX.read(xlsxBuffer, { type: "buffer", cellDates: true });
   const sheet = workbook.Sheets[workbook.SheetNames[0]];
 
-  const raw = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet, {
+  const raw = XLSX.utils.sheet_to_json<unknown[]>(sheet, {
     header: 1,
     defval: null,
   }) as unknown[][];
